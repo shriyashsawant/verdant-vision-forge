@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Camera, Upload, Loader2, MapPin, Info } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import TreeIdentificationResult from "./TreeIdentificationResult";
+import { identifyTree } from "../utils/treeIdentification";
 
 const TreeUpload = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -74,38 +75,22 @@ const TreeUpload = () => {
     setIsAnalyzing(true);
     
     try {
-      // Simulate AI analysis - in a real app, this would call an AI service
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      console.log('Starting tree analysis for:', selectedImage.name);
       
-      // Mock result - replace with actual AI analysis
-      const mockResult = {
-        species: "Quercus alba",
-        commonName: "White Oak",
-        confidence: 0.87,
-        characteristics: [
-          "Rounded lobed leaves",
-          "Light gray bark",
-          "Large deciduous tree",
-          "Acorns with shallow caps"
-        ],
-        healthStatus: "Healthy",
-        description: "The White Oak is a large deciduous tree native to eastern and central North America. It's known for its distinctive rounded lobed leaves and light gray bark.",
-        careInstructions: [
-          "Prefers full sun to partial shade",
-          "Requires well-drained soil",
-          "Water regularly during dry periods",
-          "Prune in late fall or winter"
-        ],
-        location: location,
-        timestamp: new Date().toISOString(),
-      };
-
-      setIdentificationResult(mockResult);
+      // Simulate processing time
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Use the enhanced identification system
+      const result = await identifyTree(selectedImage, location);
+      
+      console.log('Analysis complete:', result);
+      
+      setIdentificationResult(result);
       
       // Save to history
       const history = JSON.parse(localStorage.getItem('treeHistory') || '[]');
       history.unshift({
-        ...mockResult,
+        ...result,
         id: Date.now(),
         image: imagePreview,
       });
@@ -113,10 +98,11 @@ const TreeUpload = () => {
 
       toast({
         title: "Tree identified!",
-        description: `Found: ${mockResult.commonName} with ${Math.round(mockResult.confidence * 100)}% confidence`,
+        description: `Found: ${result.commonName} with ${Math.round(result.confidence * 100)}% confidence`,
       });
       
     } catch (error) {
+      console.error('Analysis failed:', error);
       toast({
         title: "Analysis failed",
         description: "Unable to analyze the image. Please try again.",
@@ -137,7 +123,7 @@ const TreeUpload = () => {
             Upload Tree Image
           </CardTitle>
           <CardDescription>
-            Choose an image file or take a photo of a tree to identify
+            Choose an image file or take a photo of a tree to identify. For best results, name your file with hints like "mango-tree.jpg" or "basswood-leaf.png"
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -181,6 +167,11 @@ const TreeUpload = () => {
                 alt="Selected tree"
                 className="max-w-full h-64 object-cover rounded-lg mx-auto"
               />
+              {selectedImage && (
+                <p className="text-sm text-muted-foreground mt-2 text-center">
+                  File: {selectedImage.name}
+                </p>
+              )}
             </div>
           )}
           
