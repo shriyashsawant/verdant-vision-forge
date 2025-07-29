@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import TreeUpload from "@/components/TreeUpload";
 import TreeDatabase from "@/components/TreeDatabase";
 import TreeHistory from "@/components/TreeHistory";
+import DatasetLoader from "@/components/DatasetLoader";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("identify");
@@ -103,7 +104,10 @@ const Index = () => {
                 provide detailed information, and assess its health.
               </p>
             </div>
-            <TreeUpload />
+            <div className="space-y-6">
+              <DatasetLoader />
+              <TreeUpload />
+            </div>
           </div>
         )}
 

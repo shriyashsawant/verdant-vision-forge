@@ -8,6 +8,7 @@ import { Camera, Upload, Loader2, MapPin, Info } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import TreeIdentificationResult from "./TreeIdentificationResult";
 import { identifyTree } from "../utils/treeIdentification";
+import { identifyTreeFromDatabase } from "../utils/treeIdentificationDatabase";
 
 const TreeUpload = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -80,8 +81,13 @@ const TreeUpload = () => {
       // Simulate processing time
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Use the enhanced identification system
-      const result = await identifyTree(selectedImage, location);
+      // Try database identification first, fallback to local if needed
+      let result = await identifyTreeFromDatabase(selectedImage, location);
+      
+      if (!result) {
+        console.log('Database identification failed, using local database...');
+        result = await identifyTree(selectedImage, location);
+      }
       
       console.log('Analysis complete:', result);
       
