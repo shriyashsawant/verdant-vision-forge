@@ -80,10 +80,7 @@ serve(async (req) => {
     // Insert the data into the database
     const { data, error } = await supabase
       .from('tree_species')
-      .upsert(sampleTreeSpecies, { 
-        onConflict: 'species_name',
-        ignoreDuplicates: false 
-      })
+      .insert(sampleTreeSpecies)
 
     if (error) {
       console.error('Database insert error:', error)
