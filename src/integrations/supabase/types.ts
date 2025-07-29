@@ -14,7 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      tree_species: {
+        Row: {
+          bark_characteristics: string | null
+          common_name: string | null
+          conservation_status: string | null
+          created_at: string
+          family: string | null
+          flower_characteristics: string | null
+          fruit_characteristics: string | null
+          genus: string | null
+          geographic_distribution: string | null
+          habitat: string | null
+          height_range: string | null
+          id: string
+          image_features: Json | null
+          leaf_type: string | null
+          source: string | null
+          species_name: string
+          updated_at: string
+        }
+        Insert: {
+          bark_characteristics?: string | null
+          common_name?: string | null
+          conservation_status?: string | null
+          created_at?: string
+          family?: string | null
+          flower_characteristics?: string | null
+          fruit_characteristics?: string | null
+          genus?: string | null
+          geographic_distribution?: string | null
+          habitat?: string | null
+          height_range?: string | null
+          id?: string
+          image_features?: Json | null
+          leaf_type?: string | null
+          source?: string | null
+          species_name: string
+          updated_at?: string
+        }
+        Update: {
+          bark_characteristics?: string | null
+          common_name?: string | null
+          conservation_status?: string | null
+          created_at?: string
+          family?: string | null
+          flower_characteristics?: string | null
+          fruit_characteristics?: string | null
+          genus?: string | null
+          geographic_distribution?: string | null
+          habitat?: string | null
+          height_range?: string | null
+          id?: string
+          image_features?: Json | null
+          leaf_type?: string | null
+          source?: string | null
+          species_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
