@@ -8,98 +8,234 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Vibrant Tacky Color Palette */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Bold Primary Colors */
+    --primary: 280 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Neon Secondary */
+    --secondary: 120 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-glow: 120 100% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Electric Accent */
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --accent-glow: 60 100% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Hot Pink Muted */
+    --muted: 320 100% 90%;
+    --muted-foreground: 320 50% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive Neon Red */
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Sharp Borders */
+    --border: 240 100% 80%;
+    --input: 240 100% 95%;
+    --ring: 280 100% 50%;
 
-    --radius: 0.5rem;
+    /* Sharp Radius - Almost no rounding */
+    --radius: 2px;
 
-    --sidebar-background: 0 0% 98%;
+    /* Vibrant Sidebar */
+    --sidebar-background: 260 100% 10%;
+    --sidebar-foreground: 260 100% 90%;
+    --sidebar-primary: 280 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 100% 20%;
+    --sidebar-accent-foreground: 260 100% 90%;
+    --sidebar-border: 260 100% 30%;
+    --sidebar-ring: 280 100% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients for Tacky Effects */
+    --gradient-primary: linear-gradient(135deg, hsl(280 100% 50%), hsl(320 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 100% 50%), hsl(180 100% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(60 100% 50%), hsl(30 100% 60%));
+    --gradient-rainbow: linear-gradient(90deg, hsl(0 100% 50%), hsl(60 100% 50%), hsl(120 100% 50%), hsl(180 100% 50%), hsl(240 100% 50%), hsl(300 100% 50%));
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Neon Shadows */
+    --shadow-neon-primary: 0 0 20px hsl(280 100% 50% / 0.6);
+    --shadow-neon-secondary: 0 0 20px hsl(120 100% 50% / 0.6);
+    --shadow-neon-accent: 0 0 20px hsl(60 100% 50% / 0.6);
+    --shadow-rainbow: 0 0 30px hsl(280 100% 50% / 0.4), 0 0 40px hsl(120 100% 50% / 0.3), 0 0 50px hsl(60 100% 50% / 0.2);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animation Timings */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode - Even More Vibrant */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 100% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 100% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Neon Primary in Dark */
+    --primary: 280 100% 70%;
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 280 100% 90%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Electric Green Secondary */
+    --secondary: 120 100% 60%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-glow: 120 100% 80%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Neon Yellow Accent */
+    --accent: 60 100% 60%;
+    --accent-foreground: 0 0% 0%;
+    --accent-glow: 60 100% 80%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Dark Muted with Pink Tint */
+    --muted: 320 100% 15%;
+    --muted-foreground: 320 50% 70%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Bright Red Destructive */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Glowing Borders */
+    --border: 240 100% 25%;
+    --input: 240 100% 15%;
+    --ring: 280 100% 70%;
+
+    /* Dark Sidebar with Neon */
+    --sidebar-background: 260 100% 3%;
+    --sidebar-foreground: 260 100% 90%;
+    --sidebar-primary: 280 100% 70%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 260 100% 10%;
+    --sidebar-accent-foreground: 260 100% 90%;
+    --sidebar-border: 260 100% 20%;
+    --sidebar-ring: 280 100% 70%;
+
+    /* Enhanced Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%), hsl(320 100% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 100% 60%), hsl(180 100% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(60 100% 60%), hsl(30 100% 70%));
+    --gradient-rainbow: linear-gradient(90deg, hsl(0 100% 60%), hsl(60 100% 60%), hsl(120 100% 60%), hsl(180 100% 60%), hsl(240 100% 60%), hsl(300 100% 60%));
+
+    /* Stronger Neon Shadows */
+    --shadow-neon-primary: 0 0 30px hsl(280 100% 70% / 0.8);
+    --shadow-neon-secondary: 0 0 30px hsl(120 100% 60% / 0.8);
+    --shadow-neon-accent: 0 0 30px hsl(60 100% 60% / 0.8);
+    --shadow-rainbow: 0 0 40px hsl(280 100% 70% / 0.6), 0 0 50px hsl(120 100% 60% / 0.5), 0 0 60px hsl(60 100% 60% / 0.4);
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    transition: var(--transition-fast);
   }
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(45deg, hsl(var(--background)), hsl(var(--muted)));
+  }
+}
+
+@layer components {
+  /* Tacky Button Styles */
+  .btn-neon {
+    @apply relative overflow-hidden font-bold uppercase tracking-wider;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-neon-primary);
+    border: 2px solid hsl(var(--primary));
+    transition: var(--transition-bounce);
+  }
+  
+  .btn-neon:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: var(--shadow-rainbow);
+    animation: pulse-neon 0.5s ease-in-out;
+  }
+  
+  .btn-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: var(--transition-normal);
+  }
+  
+  .btn-neon:hover::before {
+    left: 100%;
+  }
+
+  /* Glowing Card Effects */
+  .card-glow {
+    @apply relative;
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-neon-secondary);
+    border: 2px solid hsl(var(--secondary));
+    transition: var(--transition-bounce);
+  }
+  
+  .card-glow:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-rainbow);
+  }
+
+  /* Rainbow Border Animation */
+  .rainbow-border {
+    position: relative;
+    background: var(--gradient-rainbow);
+    background-size: 400% 400%;
+    animation: rainbow-shift 3s ease infinite;
+    padding: 3px;
+  }
+  
+  .rainbow-border::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: hsl(var(--background));
+    z-index: -1;
+  }
+
+  /* Pulsing Elements */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Sharp Geometric Shapes */
+  .sharp-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transition: var(--transition-bounce);
+  }
+  
+  .sharp-diamond:hover {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  /* Neon Text */
+  .text-neon {
+    text-shadow: 
+      0 0 5px hsl(var(--primary)),
+      0 0 10px hsl(var(--primary)),
+      0 0 15px hsl(var(--primary)),
+      0 0 20px hsl(var(--primary));
+    animation: flicker 2s infinite alternate;
   }
 }

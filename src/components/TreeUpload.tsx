@@ -192,17 +192,19 @@ const TreeUpload = () => {
             <Button 
               onClick={analyzeTree}
               disabled={!selectedImage || isAnalyzing}
-              className="min-w-32"
+              className="min-w-32 font-black uppercase tracking-wider"
+              variant="neon"
+              size="lg"
             >
               {isAnalyzing ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Analyzing...
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  ANALYZING...
                 </>
               ) : (
                 <>
-                  <Info className="mr-2 h-4 w-4" />
-                  Identify Tree
+                  <Info className="mr-2 h-5 w-5" />
+                  IDENTIFY TREE ⚡
                 </>
               )}
             </Button>

@@ -94,18 +94,19 @@ const DatasetLoader = () => {
         <Button 
           onClick={loadKaggleDataset}
           disabled={isLoading || status === 'success'}
-          className="w-full"
-          variant={status === 'success' ? 'outline' : 'default'}
+          className="w-full font-black uppercase tracking-widest"
+          variant={status === 'success' ? 'glow' : status === 'error' ? 'destructive' : 'rainbow'}
+          size="xl"
         >
           {isLoading ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Loading Dataset...
+              <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+              LOADING DATASET...
             </>
           ) : (
             <>
               {getStatusIcon()}
-              <span className="ml-2">{getStatusText()}</span>
+              <span className="ml-2 font-black text-lg">{getStatusText().toUpperCase()} 🚀</span>
             </>
           )}
         </Button>
