@@ -93,14 +93,33 @@ const TreeUpload = () => {
       
       setIdentificationResult(result);
       
-      // Save to history
-      const history = JSON.parse(localStorage.getItem('treeHistory') || '[]');
-      history.unshift({
-        ...result,
-        id: Date.now(),
-        image: imagePreview,
-      });
-      localStorage.setItem('treeHistory', JSON.stringify(history.slice(0, 50))); // Keep last 50
+      // Save to history with quota management
+      try {
+        const history = JSON.parse(localStorage.getItem('treeHistory') || '[]');
+        const newEntry = {
+          ...result,
+          id: Date.now(),
+          image: imagePreview,
+        };
+        history.unshift(newEntry);
+        
+        // Limit to 10 entries to prevent quota exceeded
+        const limitedHistory = history.slice(0, 10);
+        localStorage.setItem('treeHistory', JSON.stringify(limitedHistory));
+      } catch (quotaError) {
+        console.warn('localStorage quota exceeded, clearing history');
+        try {
+          // Clear and save only current entry
+          const freshHistory = [{
+            ...result,
+            id: Date.now(),
+            image: imagePreview,
+          }];
+          localStorage.setItem('treeHistory', JSON.stringify(freshHistory));
+        } catch {
+          console.warn('Cannot save to localStorage');
+        }
+      }
 
       toast({
         title: "Tree identified!",
