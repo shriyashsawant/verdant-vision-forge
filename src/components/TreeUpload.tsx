@@ -193,7 +193,7 @@ const TreeUpload = () => {
               onClick={analyzeTree}
               disabled={!selectedImage || isAnalyzing}
               className="min-w-32 font-black uppercase tracking-wider"
-              variant="neon"
+              variant="nature"
               size="lg"
             >
               {isAnalyzing ? (

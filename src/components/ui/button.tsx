@@ -19,9 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-lg hover:bg-secondary/80 hover:scale-105 hover:rotate-1 active:scale-95 border-2 border-secondary",
         ghost: "hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:rotate-1 active:scale-95",
         link: "text-primary underline-offset-4 hover:underline hover:scale-105 active:scale-95",
-        neon: "btn-neon text-primary-foreground font-black text-lg tracking-widest",
-        rainbow: "rainbow-border text-foreground font-black hover:animate-rainbow-spin",
-        glow: "bg-primary text-primary-foreground animate-pulse-glow hover:animate-scale-bounce border-2 border-primary shadow-lg"
+        nature: "btn-nature text-white font-medium hover:text-white",
+        forest: "bg-gradient-to-r from-primary to-primary-glow text-white shadow-leaf hover:shadow-nature animate-grow",
+        earth: "bg-gradient-to-br from-secondary to-secondary-glow text-white border-accent/30 hover:animate-sway"
       },
       size: {
         default: "h-10 px-4 py-2 rounded-sharp",

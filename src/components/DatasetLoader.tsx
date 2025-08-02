@@ -95,7 +95,7 @@ const DatasetLoader = () => {
           onClick={loadKaggleDataset}
           disabled={isLoading || status === 'success'}
           className="w-full font-black uppercase tracking-widest"
-          variant={status === 'success' ? 'glow' : status === 'error' ? 'destructive' : 'rainbow'}
+          variant={status === 'success' ? 'forest' : status === 'error' ? 'destructive' : 'nature'}
           size="xl"
         >
           {isLoading ? (

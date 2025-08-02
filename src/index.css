@@ -2,240 +2,306 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Natural Forest Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    /* Vibrant Tacky Color Palette */
-    --background: 0 0% 98%;
-    --foreground: 0 0% 5%;
+    /* Natural Forest Color Palette */
+    --background: 120 15% 97%;
+    --foreground: 120 10% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card: 120 20% 99%;
+    --card-foreground: 120 10% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 120 20% 99%;
+    --popover-foreground: 120 10% 15%;
 
-    /* Bold Primary Colors */
-    --primary: 280 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 280 100% 70%;
+    /* Forest Green Primary */
+    --primary: 140 60% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 140 60% 55%;
 
-    /* Neon Secondary */
-    --secondary: 120 100% 50%;
-    --secondary-foreground: 0 0% 0%;
-    --secondary-glow: 120 100% 70%;
+    /* Earthy Brown Secondary */
+    --secondary: 30 40% 45%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 30 40% 65%;
 
-    /* Electric Accent */
-    --accent: 60 100% 50%;
-    --accent-foreground: 0 0% 0%;
-    --accent-glow: 60 100% 70%;
+    /* Sage Green Accent */
+    --accent: 90 30% 60%;
+    --accent-foreground: 120 10% 15%;
+    --accent-glow: 90 30% 80%;
 
-    /* Hot Pink Muted */
-    --muted: 320 100% 90%;
-    --muted-foreground: 320 50% 20%;
+    /* Moss Green Muted */
+    --muted: 120 20% 93%;
+    --muted-foreground: 120 15% 35%;
 
-    /* Destructive Neon Red */
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 0 0% 100%;
+    /* Autumn Red Destructive */
+    --destructive: 10 80% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    /* Sharp Borders */
-    --border: 240 100% 80%;
-    --input: 240 100% 95%;
-    --ring: 280 100% 50%;
+    /* Natural Borders */
+    --border: 120 20% 85%;
+    --input: 120 15% 96%;
+    --ring: 140 60% 35%;
 
-    /* Sharp Radius - Almost no rounding */
-    --radius: 2px;
+    /* Organic Radius */
+    --radius: 12px;
 
-    /* Vibrant Sidebar */
-    --sidebar-background: 260 100% 10%;
-    --sidebar-foreground: 260 100% 90%;
-    --sidebar-primary: 280 100% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 260 100% 20%;
-    --sidebar-accent-foreground: 260 100% 90%;
-    --sidebar-border: 260 100% 30%;
-    --sidebar-ring: 280 100% 50%;
-
-    /* Gradients for Tacky Effects */
-    --gradient-primary: linear-gradient(135deg, hsl(280 100% 50%), hsl(320 100% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(120 100% 50%), hsl(180 100% 50%));
-    --gradient-accent: linear-gradient(135deg, hsl(60 100% 50%), hsl(30 100% 60%));
-    --gradient-rainbow: linear-gradient(90deg, hsl(0 100% 50%), hsl(60 100% 50%), hsl(120 100% 50%), hsl(180 100% 50%), hsl(240 100% 50%), hsl(300 100% 50%));
-
-    /* Neon Shadows */
-    --shadow-neon-primary: 0 0 20px hsl(280 100% 50% / 0.6);
-    --shadow-neon-secondary: 0 0 20px hsl(120 100% 50% / 0.6);
-    --shadow-neon-accent: 0 0 20px hsl(60 100% 50% / 0.6);
-    --shadow-rainbow: 0 0 30px hsl(280 100% 50% / 0.4), 0 0 40px hsl(120 100% 50% / 0.3), 0 0 50px hsl(60 100% 50% / 0.2);
-
-    /* Animation Timings */
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Natural Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-forest: linear-gradient(180deg, 
+      hsl(120 40% 30%), 
+      hsl(120 50% 40%), 
+      hsl(140 60% 35%)
+    );
+    --gradient-earth: linear-gradient(45deg,
+      hsl(30 40% 45%),
+      hsl(25 50% 35%),
+      hsl(20 45% 40%)
+    );
+    
+    /* Organic Shadows */
+    --shadow-soft: 0 4px 12px hsl(var(--primary) / 0.15);
+    --shadow-nature: 0 8px 25px hsl(120 30% 20% / 0.2);
+    --shadow-leaf: 0 2px 8px hsl(140 40% 30% / 0.3);
+    
+    /* Natural Animation Durations */
+    --animation-fast: 0.2s;
+    --animation-normal: 0.4s;
+    --animation-slow: 0.8s;
   }
 
   .dark {
-    /* Dark Mode - Even More Vibrant */
-    --background: 0 0% 5%;
-    --foreground: 0 0% 95%;
+    /* Dark Forest Theme */
+    --background: 120 15% 8%;
+    --foreground: 120 10% 90%;
 
-    --card: 240 100% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 120 20% 12%;
+    --card-foreground: 120 10% 90%;
 
-    --popover: 240 100% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 120 20% 12%;
+    --popover-foreground: 120 10% 90%;
 
-    /* Neon Primary in Dark */
-    --primary: 280 100% 70%;
-    --primary-foreground: 0 0% 0%;
-    --primary-glow: 280 100% 90%;
+    /* Deep Forest Green Primary */
+    --primary: 140 50% 45%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 140 50% 65%;
 
-    /* Electric Green Secondary */
-    --secondary: 120 100% 60%;
-    --secondary-foreground: 0 0% 0%;
-    --secondary-glow: 120 100% 80%;
+    /* Rich Earth Brown Secondary */
+    --secondary: 25 60% 40%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 25 60% 60%;
 
-    /* Neon Yellow Accent */
-    --accent: 60 100% 60%;
-    --accent-foreground: 0 0% 0%;
-    --accent-glow: 60 100% 80%;
+    /* Moonlit Sage Accent */
+    --accent: 90 25% 50%;
+    --accent-foreground: 120 15% 15%;
+    --accent-glow: 90 25% 70%;
 
-    /* Dark Muted with Pink Tint */
-    --muted: 320 100% 15%;
-    --muted-foreground: 320 50% 70%;
+    /* Dark Moss Muted */
+    --muted: 120 15% 18%;
+    --muted-foreground: 120 10% 70%;
 
-    /* Bright Red Destructive */
-    --destructive: 0 100% 60%;
-    --destructive-foreground: 0 0% 100%;
+    /* Fire Orange Destructive */
+    --destructive: 15 80% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    /* Glowing Borders */
-    --border: 240 100% 25%;
-    --input: 240 100% 15%;
-    --ring: 280 100% 70%;
-
-    /* Dark Sidebar with Neon */
-    --sidebar-background: 260 100% 3%;
-    --sidebar-foreground: 260 100% 90%;
-    --sidebar-primary: 280 100% 70%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 260 100% 10%;
-    --sidebar-accent-foreground: 260 100% 90%;
-    --sidebar-border: 260 100% 20%;
-    --sidebar-ring: 280 100% 70%;
-
-    /* Enhanced Dark Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%), hsl(320 100% 80%));
-    --gradient-secondary: linear-gradient(135deg, hsl(120 100% 60%), hsl(180 100% 70%));
-    --gradient-accent: linear-gradient(135deg, hsl(60 100% 60%), hsl(30 100% 70%));
-    --gradient-rainbow: linear-gradient(90deg, hsl(0 100% 60%), hsl(60 100% 60%), hsl(120 100% 60%), hsl(180 100% 60%), hsl(240 100% 60%), hsl(300 100% 60%));
-
-    /* Stronger Neon Shadows */
-    --shadow-neon-primary: 0 0 30px hsl(280 100% 70% / 0.8);
-    --shadow-neon-secondary: 0 0 30px hsl(120 100% 60% / 0.8);
-    --shadow-neon-accent: 0 0 30px hsl(60 100% 60% / 0.8);
-    --shadow-rainbow: 0 0 40px hsl(280 100% 70% / 0.6), 0 0 50px hsl(120 100% 60% / 0.5), 0 0 60px hsl(60 100% 60% / 0.4);
+    /* Natural Dark Borders */
+    --border: 120 15% 25%;
+    --input: 120 15% 20%;
+    --ring: 140 50% 45%;
   }
+}
+
+/* Nature-Inspired Keyframe Animations */
+@keyframes gentle-sway {
+  0%, 100% { 
+    transform: rotate(0deg) translateY(0px);
+  }
+  25% { 
+    transform: rotate(1deg) translateY(-2px);
+  }
+  75% { 
+    transform: rotate(-1deg) translateY(-1px);
+  }
+}
+
+@keyframes leaf-dance {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-10px) rotate(5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes growth-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+}
+
+@keyframes forest-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes branch-wave {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(5px) rotate(1deg); }
+  75% { transform: translateX(-5px) rotate(-1deg); }
+}
+
+@keyframes natural-breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.02) rotate(0.5deg); }
 }
 
 @layer base {
   * {
     @apply border-border;
-    transition: var(--transition-fast);
+    transition: var(--animation-fast);
   }
 
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(45deg, hsl(var(--background)), hsl(var(--muted)));
+    background: 
+      radial-gradient(circle at 20% 20%, hsl(120 30% 95%) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(90 20% 96%) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
   }
 }
 
 @layer components {
-  /* Tacky Button Styles */
-  .btn-neon {
-    @apply relative overflow-hidden font-bold uppercase tracking-wider;
-    background: var(--gradient-primary);
-    box-shadow: var(--shadow-neon-primary);
-    border: 2px solid hsl(var(--primary));
-    transition: var(--transition-bounce);
+  /* Nature-Inspired Button Styles */
+  .btn-nature {
+    @apply relative overflow-hidden font-medium;
+    background: var(--gradient-forest);
+    box-shadow: var(--shadow-nature);
+    border: 1px solid hsl(var(--primary) / 0.3);
+    border-radius: var(--radius);
+    transition: all var(--animation-normal) cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .btn-neon:hover {
-    transform: scale(1.05) rotate(1deg);
-    box-shadow: var(--shadow-rainbow);
-    animation: pulse-neon 0.5s ease-in-out;
+  .btn-nature:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-leaf), 0 8px 25px hsl(var(--primary) / 0.25);
+    animation: gentle-sway 2s ease-in-out infinite;
   }
   
-  .btn-neon::before {
+  .btn-nature::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: var(--transition-normal);
+    background: linear-gradient(90deg, transparent, hsla(120, 100%, 100%, 0.2), transparent);
+    transition: var(--animation-normal);
   }
   
-  .btn-neon:hover::before {
+  .btn-nature:hover::before {
     left: 100%;
   }
 
-  /* Glowing Card Effects */
-  .card-glow {
+  /* Organic Card Effects */
+  .card-nature {
     @apply relative;
-    background: var(--gradient-secondary);
-    box-shadow: var(--shadow-neon-secondary);
-    border: 2px solid hsl(var(--secondary));
-    transition: var(--transition-bounce);
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    box-shadow: var(--shadow-soft);
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    transition: all var(--animation-normal) ease;
   }
   
-  .card-glow:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: var(--shadow-rainbow);
+  .card-nature:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-nature);
+    animation: natural-breathe 3s ease-in-out infinite;
   }
 
-  /* Rainbow Border Animation */
-  .rainbow-border {
+  /* Forest Branch Border */
+  .branch-border {
     position: relative;
-    background: var(--gradient-rainbow);
-    background-size: 400% 400%;
-    animation: rainbow-shift 3s ease infinite;
-    padding: 3px;
+    background: var(--gradient-earth);
+    border-radius: calc(var(--radius) * 1.5);
+    padding: 2px;
+    animation: branch-wave 4s ease-in-out infinite;
   }
   
-  .rainbow-border::before {
+  .branch-border::before {
     content: '';
     position: absolute;
-    inset: 3px;
+    inset: 2px;
     background: hsl(var(--background));
+    border-radius: var(--radius);
     z-index: -1;
   }
 
-  /* Pulsing Elements */
-  .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite alternate;
+  /* Growing Elements */
+  .growth-animation {
+    animation: growth-pulse 3s ease-in-out infinite;
   }
 
-  /* Sharp Geometric Shapes */
-  .sharp-diamond {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transition: var(--transition-bounce);
+  /* Leaf Dance */
+  .leaf-float {
+    animation: leaf-dance 4s ease-in-out infinite;
+  }
+
+  /* Natural Text Effects */
+  .text-forest {
+    background: var(--gradient-forest);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: forest-shimmer 3s ease-in-out infinite;
+  }
+
+  /* Organic Input Styles */
+  .input-nature {
+    @apply bg-input border-border;
+    border-radius: var(--radius);
+    box-shadow: inset 0 2px 4px hsl(var(--muted) / 0.1);
+    transition: all var(--animation-normal) ease;
+  }
+
+  .input-nature:focus {
+    box-shadow: 
+      inset 0 2px 4px hsl(var(--muted) / 0.1),
+      0 0 0 2px hsl(var(--ring) / 0.2),
+      var(--shadow-leaf);
+    transform: scale(1.01);
+  }
+}
+
+/* Natural utility classes */
+@layer utilities {
+  .animate-sway {
+    animation: gentle-sway 3s ease-in-out infinite;
   }
   
-  .sharp-diamond:hover {
-    transform: rotate(45deg) scale(1.1);
+  .animate-leaf {
+    animation: leaf-dance 4s ease-in-out infinite;
   }
-
-  /* Neon Text */
-  .text-neon {
-    text-shadow: 
-      0 0 5px hsl(var(--primary)),
-      0 0 10px hsl(var(--primary)),
-      0 0 15px hsl(var(--primary)),
-      0 0 20px hsl(var(--primary));
-    animation: flicker 2s infinite alternate;
+  
+  .animate-grow {
+    animation: growth-pulse 2s ease-in-out infinite;
+  }
+  
+  .animate-branch {
+    animation: branch-wave 5s ease-in-out infinite;
+  }
+  
+  .animate-breathe {
+    animation: natural-breathe 4s ease-in-out infinite;
   }
 }
